@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+# 🚀 SplitEase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> **SplitEase** — Simplify splitting expenses with friends and groups. Built with React, Node.js, and MongoDB.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📸 Screenshots
 
-### `npm start`
+| Login Page | Dashboard |
+|------------|-----------|
+| ![Login](link_to_login_image) | ![Dashboard](link_to_dashboard_image) |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+*(Add your actual image links or upload images in your repo)*
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✨ Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 🔒 Secure User Authentication (Register, Login, Logout)
+- 🤝 Create Groups and Share Expenses
+- 📊 Automatic Bill Splitting
+- 🔐 Protected Routes with Private Dashboard Access
+- 💬 Real-time Feedback (Spinners, Error Alerts)
+- 🎨 Clean, Responsive UI for Web & Mobile
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠 Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Frontend | Backend | Database | Others |
+|:--------:|:-------:|:--------:|:------:|
+| React.js | Node.js (Express) | MongoDB | JWT Authentication |
+| TailwindCSS | API Endpoints | Mongoose | React Router DOM |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📦 Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Follow these simple steps to run the project locally:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. Clone the Repository
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+git clone https://github.com/your-username/splitease.git
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. Install Dependencies
 
-## Learn More
+```bash
+cd splitease
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+*(If you have separate backend, go into backend folder and do `npm install` there too.)*
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 3. Set Environment Variables
 
-### Code Splitting
+Create a `.env` file and add:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+MONGO_URI = your_mongodb_connection_string
+JWT_SECRET = your_jwt_secret_key
+```
 
-### Analyzing the Bundle Size
+*(backend environment)*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 4. Run the App
 
-### Making a Progressive Web App
+Frontend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm start
+```
 
-### Advanced Configuration
+Backend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm run server
+```
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🔥 Live Demo
 
-### `npm run build` fails to minify
+[🔗 Click here to view live SplitEase](https://your-splitease-app-link.vercel.app)  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*(Add once you deploy on Vercel/Netlify)*
+
+---
+
+## 📢 Inspiration
+
+Managing shared expenses shouldn't be complicated.  
+SplitEase was created to make **splitting bills** and **settling up** easier, faster, and fun — whether it's for roommates, friends, trips, or teams.
+
+---
+
+## 👨‍💻 Author
+
+- Developed with ❤️ by [Arbaz Ansari](https://github.com/ArbazWizard01)
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📜 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+# ✨ Final Tagline
+
+> **SplitEase** — Never worry about splitting bills again. 💸
+
