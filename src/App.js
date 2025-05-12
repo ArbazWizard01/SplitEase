@@ -7,18 +7,19 @@ import {
 import { useContext } from "react";
 import { AuthProvider, AuthContext } from "./contexts/AuthContext";
 
-import Register from "./components/Auth/register/Register";
-import Login from "./components/Auth/login/Login";
-
-const Dashboard = () => (
-  <h1 style={{ textAlign: "center", marginTop: "2rem" }}>
-    Welcome to SplitEase 🚀
-  </h1>
-);
+import Register from "./components/Auth/Register";
+import Login from "./components/Auth/Login";
+import Dashboard from "./pages/Dashboard";
+import Group from "./pages/Group";
 
 const PrivateRoute = ({ children }) => {
   const { user } = useContext(AuthContext);
   return user ? children : <Navigate to="/login" />;
+};
+
+const RootRedirect = () => {
+  const { user } = useContext(AuthContext);
+  return <Navigate to={user ? "/dashboard" : "/login"} />;
 };
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
     <Router>
       <AuthProvider>
         <Routes>
+          <Route path="/" element={<RootRedirect />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route
@@ -33,6 +35,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Dashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/groups/:id"
+            element={
+              <PrivateRoute>
+                <Group />
               </PrivateRoute>
             }
           />

@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import API from "../services/api";   // Make sure this is imported
+import API from "../services/api";  
 
 const AuthContext = createContext();
 
@@ -11,9 +11,16 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      try {
+        const parsedUser = JSON.parse(storedUser);
+        setUser(parsedUser);
+      } catch (err) {
+        console.error("Error parsing user from localStorage", err);
+        localStorage.removeItem("user");
+      }
     }
   }, []);
+  
 
   const login = (userData, token) => {
     localStorage.setItem("user", JSON.stringify(userData));

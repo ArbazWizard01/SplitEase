@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
-import { AuthContext } from "../../../contexts/AuthContext";
+import { AuthContext } from "../../contexts/AuthContext";
 import { Link } from "react-router-dom";
-import "./register.css";
+import "../../styles/register.css";
 
 const Register = () => {
   const { register } = useContext(AuthContext);

@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
-import { AuthContext } from "../../../contexts/AuthContext";
+import { AuthContext } from "../../contexts/AuthContext";
 import { Link } from "react-router-dom";
-import API from "../../../services/api";
-import "./login.css";
+import API from "../../services/api";
+import "../../styles/login.css";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
@@ -23,6 +23,10 @@ const Login = () => {
       }, 3000);
     } catch (err) {
       alert(err.response?.data?.message || "Login Failed");
+      setTimeout(() => {
+        setLoading(false);
+        console.log("Login Failed", err.response?.data?.message);
+      }, 3000);
     }
   };
 

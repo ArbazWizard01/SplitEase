@@ -1,0 +1,203 @@
+/* Dashboard.css */
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f7f8fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+ 
+  
+  /* Main Content */
+  .dashboard-content {
+    flex: 1;
+    padding: 2rem;
+  }
+  
+  .welcome-card {
+    background-color: #cfeaff;
+    padding: 35px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .welcome-card h2 {
+    margin: 0;
+    color: #0a2c72;
+  }
+  
+  .welcome-card p {
+    color: rgb(6, 27, 100);
+    margin-top: 0.5rem;
+  }
+  
+  .welcome-card button {
+    background-color: #2344f5;
+    color: white;
+    border: none;
+    /* padding: 0.75rem 1.25rem; */
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .welcome-card button:hover {
+    background-color: #1a34c5;
+  }
+
+  .view-groups-btn{
+    background-color: #5f75f2;
+    color: #fff;
+    border: 1px solid #ccc;
+    padding: 6px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);    
+    margin-top: 1rem;
+  }
+  
+  .welcome-img {
+    max-width: 340px;
+  }
+  
+  .no-groups {
+    margin-top: 3rem;
+    font-size: 1.1rem;
+    text-align: center;
+    color: #444;
+  }
+  
+  .no-groups a {
+    display: block;
+    margin-top: 0.5rem;
+    color: #6015c4;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+  
+  /* === Summary Section === */
+.summary-section {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1rem 0;
+}
+
+.summary-card {
+  flex: 1;
+  background-color: #e8f0fe;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.summary-card h4 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.summary-card p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0077ff;
+}
+
+
+/* === Group List === */
+.group-heading {
+  margin-top: 2rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  border-bottom: 1px solid #c8bfbf;
+}
+
+.group-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+
+/* === Group Card === */
+.group-card {
+  background-color: #e0f7ff; /* Light blue background color */
+  border-radius: 16px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.group-card:hover {
+  transform: translateY(-3px);
+}
+
+.group-card-header h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: rgb(6, 27, 100);
+
+}
+
+.group-card-header p {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-top: 0.3rem;
+}
+
+/* Balance tag */
+.balance-tag {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.settled {
+  background-color: #e5f8e6;
+  color: #27ae60;
+}
+
+.owe {
+  background-color: #fdeaea;
+  color: #c0392b;
+}
+
+.owed {
+  background-color: #e6f4ff;
+  color: #2980b9;
+}
+
+/* Add Expense Button */
+.add-expense-btn {
+  margin-top: 1rem;
+  background-color: #fff;
+  color: #0077ff;
+  border: 1px solid #0077ff;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.add-expense-btn:hover {
+  background-color: #0077ff;
+  color: #fff;
+}
