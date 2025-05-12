@@ -8,7 +8,9 @@
 
 | Login Page | Dashboard |
 |------------|-----------|
-| ![Login](link_to_login_image) | ![Dashboard](link_to_dashboard_image) |
+| ![image](https://github.com/user-attachments/assets/baa0b5f6-0c09-4a42-a6f7-d3c26ebcf568) | ![image](https://github.com/user-attachments/assets/06b3dc76-d10f-47fe-8824-8c907cd7c153)
+ |
+
 
 *(Add your actual image links or upload images in your repo)*
 
