@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  // baseURL: "https://splitease-backend-production.up.railway.app/",
-  baseURL: "http://localhost:8000",
+   baseURL: "https://splitease-backend-production.up.railway.app/",
+  //baseURL: "http://localhost:8000",
 });
 
 // Attach token to every request
