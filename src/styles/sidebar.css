@@ -1,17 +1,22 @@
 /* Sidebar.css */
 
 .sidebar {
-    width: 25%;
-    max-height: 100vh;
-    /* position: fixed; */
-    background-color: #f8f9fa;
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-right: 1px dashed #ddd;
-    font-family: "Segoe UI", sans-serif;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100vh;
+  background-color: #f8f9fa;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px dashed #ddd;
+  font-family: "Segoe UI", sans-serif;
+  overflow-y: auto; /* Optional: make sidebar scrollable if content exceeds height */
+  z-index: 100; /* Make sure it's above content */
+}
+
   
   .logo {
     width: 60px;
@@ -61,6 +66,9 @@
   .group-links {
     width: 100%;
     margin-top: 1rem;
+  }
+  .side-groups{
+    margin-top: 1.5rem;
   }
   
   .group-item {

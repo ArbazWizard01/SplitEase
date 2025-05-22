@@ -2,28 +2,36 @@ import React from "react";
 
 const ExpenseList = ({
   expenses,
-  memberMap,
   IconButton,
+  getUserName,
   openEditModal,
   handleDeleteExpense,
   AiOutlineDelete,
   AiOutlineEdit,
+  openDetailModal,
 }) => {
   return (
     <div className="expense-list">
       {expenses.map((expense) => (
-        <div className="expense-item" key={expense._id}>
+        <div
+          className="expense-item"
+          key={expense._id}
+          onClick={() => openDetailModal(expense)}
+        >
           <div className="expense-item-header">
             <span>₹{expense.amount}</span>
-            <span>Paid by {memberMap[expense.paidBy]}</span>
+            <span>Paid by {getUserName(expense.paidBy)}</span>
           </div>
           <div className="expense-item-description">{expense.description}</div>
           <div className="expense-item-split">
             <div>
               Split between:{" "}
-              {expense.splitBetween.map((id) => memberMap[id]).join(", ")}
+              {expense.splitBetween.map((id) => getUserName(id)).join(", ")}
             </div>
-            <div className="expense-item-actions">
+            <div
+              className="expense-item-actions"
+              onClick={(e) => e.stopPropagation()} 
+            >
               <IconButton type="text" onClick={() => openEditModal(expense)}>
                 <AiOutlineEdit />
               </IconButton>

@@ -1,46 +1,51 @@
-import React, { useEffect, useState } from "react";
-import {
-  FaTachometerAlt,
-  FaUsers,
-  FaUserPlus,
-  FaInfoCircle,
-} from "react-icons/fa";
+import React, { useEffect, useState, useContext } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { useContext } from "react";
+import { message } from "antd";
 import { AuthContext } from "../contexts/AuthContext";
-import "../styles/sidebar.css";
 import { getGroups } from "../services/api";
+import API from "../services/api";
+import "../styles/sidebar.css";
+import CreateGroup from "./CreateGroup";
 
-const Sidebar = () => {
+const Sidebar = ({ onGroupCreated }) => {
   const { user } = useContext(AuthContext);
   const [groups, setGroups] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [loadingUsers, setLoadingUsers] = useState(false);
+  const [allUsers, setAllUsers] = useState([]);
+
   const location = useLocation();
 
   useEffect(() => {
     fetchGroups();
+    fetchUsers();
   }, []);
 
   const fetchGroups = async () => {
     try {
       const res = await getGroups();
-      setGroups(res || res.groups);
-    } catch (err) {}
+      setGroups(res.groups || res);
+    } catch (err) {
+      message.error("Failed to fetch groups.");
+    }
   };
 
-  const navItems = [
-    { label: "Dashboard", icon: <FaTachometerAlt />, path: "/dashboard" },
-    { label: "Groups", icon: <FaUsers />, path: "/groups" },
-    { label: "Create Group", icon: <FaUserPlus />, path: "/create-group" },
-    { label: "About", icon: <FaInfoCircle />, path: "/about" },
-  ];
+  const fetchUsers = async () => {
+    try {
+      setLoadingUsers(true);
+      const res = await API.get("/api/users");
+      const users = res.data?.users || [];
+
+      setAllUsers(users);
+    } catch (err) {
+      message.error("Failed to load users.");
+    } finally {
+      setLoadingUsers(false);
+    }
+  };
 
   return (
     <div className="sidebar">
-      <div className="logo">
-        {/* Logo image placeholder */}
-        {/* <img src="/logo.png" alt="SplitEase" /> */}
-      </div>
-
       <Link to={"/dashboard"} className="profile-card">
         <img
           className="profile-pic"
@@ -54,32 +59,31 @@ const Sidebar = () => {
       </Link>
 
       <div className="group-links">
-        <h3>Groups</h3>
+        <div className="group-links-header">
+          <h3>Groups</h3>
+          <CreateGroup
+            setModalOpen={setModalOpen}
+            onGroupCreated={onGroupCreated}
+            allUsers={allUsers}
+            loadingUsers={loadingUsers}
+            modalOpen={modalOpen}
+          />
+        </div>
+        <div className="side-groups">
           {groups.map((group) => (
             <div key={group._id}>
-              <Link to={`/groups/${group._id}`} className="group-item">{group.name}</Link>
+              <Link
+                to={`/groups/${group._id}`}
+                className={`group-item ${
+                  location.pathname === `/groups/${group._id}` ? "active" : ""
+                }`}
+              >
+                {group.name}
+              </Link>
             </div>
           ))}
+        </div>
       </div>
-
-      {/* <div className="nav-links">
-        {navItems.map((item) => (
-          <Link
-            to={item.path}
-            key={item.label}
-            style={{ textDecoration: "none" }}
-          >
-            <div
-              className={`nav-item ${
-                location.pathname === item.path ? "active" : ""
-              }`}
-            >
-              {item.icon}
-              {item.label}
-            </div>
-          </Link>
-        ))}
-      </div> */}
 
       <div className="footer">
         <p>© ArbazAnsari | Open Source ❤️</p>

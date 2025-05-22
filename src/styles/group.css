@@ -4,18 +4,26 @@
   display: flex;
   height: 100vh;
   background-color: #f4f6f8;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 25%;
+  width: 75%; /* explicitly make it 75% */
 }
 
 .group-details {
   flex: 1;
-  padding: .5rem;
+  padding: 0.5rem;
   padding-left: 2rem;
   padding-right: 2rem;
   width: 100%;
   overflow-y: auto;
   background-color: #ffffff;
   border-left: 1px solid #e0e0e0;
+}
+
+.group-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .group-details h1 {
@@ -65,55 +73,15 @@
   color: #444;
 }
 
-.expense-btn{
+.expense-btn {
   padding: 20px;
   margin-right: 30px;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   background-color: #0077ff;
   border: none;
   font-weight: 500;
   border-radius: 50px;
 }
-
-/* add member styles */
-
-/* .add-member-section {
-  margin-top: 2rem;
-}
-
-.add-member-form {
-  display: flex;
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
-
-.add-member-form input {
-  flex: 1;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.add-member-form button {
-  padding: 0.5rem 1rem;
-  background-color: #0077ff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.add-member-form button:hover {
-  background-color: #005fcc;
-}
-
-.add-member-msg {
-  margin-top: 0.5rem;
-  color: #007700;
-  font-weight: 500;
-} */
-
 
 /*  Expense List Styles */
 .expense-list {
@@ -123,12 +91,13 @@
 .expense-item {
   position: relative;
   border-left: 5px solid #0077ff;
-  padding: .7rem 1rem;
+  padding: 0.7rem 1rem;
   background: #ffffff;
   margin-bottom: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s;
+  cursor: pointer;
 }
 
 .expense-item:hover {
@@ -146,7 +115,7 @@
 .expense-item-description {
   color: #666;
   margin-bottom: 0.5rem;
-  font-size: 17px
+  font-size: 17px;
 }
 
 .expense-item-split {
@@ -160,4 +129,3 @@
   bottom: 10px;
   right: 20px;
 }
-

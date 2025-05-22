@@ -1,13 +1,15 @@
 import { useEffect, useState, useContext } from "react";
-import { getGroups } from "../services/api";
+import API, { getGroups } from "../services/api";
 import { AuthContext } from "../contexts/AuthContext";
 import Sidebar from "../components/Sidebar";
 import { Link } from "react-router-dom";
 import "../styles/dashboard.css";
+import { notification } from "antd";
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
   const [groups, setGroups] = useState([]);
+  const [userMap, setUserMap] = useState({});
 
   useEffect(() => {
     fetchGroups();
@@ -16,9 +18,26 @@ const Dashboard = () => {
   const fetchGroups = async () => {
     try {
       const res = await getGroups();
-      setGroups(res.groups || res);
+      const fetchedGroups = res.groups || res;
+      setGroups(fetchedGroups);
+
+      const uniqueCreatorIds = [
+        ...new Set(fetchedGroups.map((g) => g.createdBy)),
+      ];
+
+      if (uniqueCreatorIds.length > 0) {
+        const { data: userData } = await API.post("/api/users/name", {
+          ids: uniqueCreatorIds,
+        });
+
+        const formattedMap = {};
+        for (const id in userData) {
+          formattedMap[id] = { name: userData[id] };
+        }
+        setUserMap(formattedMap);
+      }
     } catch (err) {
-      console.error(err.message);
+      notification.error("Failed to fetch groups or creator names:", err.message);
     }
   };
 
@@ -26,7 +45,9 @@ const Dashboard = () => {
     let balance = 0;
     const balances = group.balances || {};
     if (balances[user.id]) {
-      for (const [otherUserId, amount] of Object.entries(balances[user.id])) {
+      for (const [otherUserId, amount] of Object.entries(
+        balances[user.id]
+      )) {
         balance += amount;
       }
     }
@@ -38,10 +59,7 @@ const Dashboard = () => {
     return { ...group, balance };
   });
 
-  const total = groupsWithBalance.reduce(
-    (acc, group) => acc + group.balance,
-    0
-  );
+  const total = groupsWithBalance.reduce((acc, group) => acc + group.balance, 0);
   const youOwe = groupsWithBalance
     .filter((g) => g.balance < 0)
     .reduce((acc, g) => acc + g.balance, 0);
@@ -51,7 +69,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <Sidebar />
+      <Sidebar onGroupCreated={fetchGroups} />
 
       <div className="dashboard-content">
         <div className="welcome-card">
@@ -61,9 +79,7 @@ const Dashboard = () => {
               Keep track of shared expenses and settle your corresponding
               balances in a convenient and personalized way.
             </p>
-            <Link className="view-groups-btn">
-              View Groups
-            </Link>
+            <Link className="view-groups-btn">View Groups</Link>
           </div>
           <img
             className="welcome-img"
@@ -93,37 +109,40 @@ const Dashboard = () => {
         {/* Groups Section */}
         <div className="group-list">
           {groupsWithBalance.length > 0 ? (
-            groupsWithBalance.map((group) => (
-              <Link to={`/groups/${group._id}`} key={group._id} className="group-card">
-                <div className="group-card-header">
-                  <h3 >{group.name}</h3>
-                  {/* <p>{group.description || "No description"}</p> */}
-                </div>
-                <div className="group-card-balance">
-                  <span
-                    className={`balance-tag ${
-                      group.balance === 0
-                        ? "settled"
-                        : group.balance > 0
-                        ? "owed"
-                        : "owe"
-                    }`}
-                  >
-                    {group.balance === 0
-                      ? "Settled"
-                      : group.balance > 0
-                      ? `You are owed: ₹ ${group.balance.toFixed(2)}`
-                      : `You owe: ₹ ${Math.abs(group.balance).toFixed(2)}`}
-                  </span>
-                </div>
+            groupsWithBalance.map((group) => {
+              const creatorName =
+                userMap[group.createdBy]?.name || group.createdBy;
+
+              return (
                 <Link
-                  to={`/groups/${group._id}/add-expense`}
-                  className="add-expense-btn"
+                  to={`/groups/${group._id}`}
+                  key={group._id}
+                  className="group-card"
                 >
-                  ➕ Add Expense
+                  <div className="group-card-header">
+                    <h3>{group.name}</h3>
+                    <p>Created by: {creatorName}</p>
+                  </div>
+                  <div className="group-card-balance">
+                    <span
+                      className={`balance-tag ${
+                        group.balance === 0
+                          ? "settled"
+                          : group.balance > 0
+                          ? "owed"
+                          : "owe"
+                      }`}
+                    >
+                      {group.balance === 0
+                        ? "Settled"
+                        : group.balance > 0
+                        ? `You are owed: ₹ ${group.balance.toFixed(2)}`
+                        : `You owe: ₹ ${Math.abs(group.balance).toFixed(2)}`}
+                    </span>
+                  </div>
                 </Link>
-              </Link>
-            ))
+              );
+            })
           ) : (
             <div className="no-groups">
               <p>

@@ -4,11 +4,11 @@ import styled from "styled-components";
 const Container = styled.div`
   max-width: 400px;
   margin: 2rem auto;
-  padding: .4rem 1rem;
+  padding: 0.4rem 1rem;
   border-radius: 16px;
   background: #f9f9f9;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 `;
 
 const Title = styled.h2`
@@ -20,7 +20,6 @@ const Title = styled.h2`
 const DebtCard = styled.div`
   background: #fff;
   border: 1px solid #ddd;
-  // border-left: 5px solid #007bff;
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 10px;
@@ -46,21 +45,33 @@ const Amount = styled.span`
   font-size: 1rem;
 `;
 
-const Summary = ({balanceList}) => {
-  const data = [
-    { name: "Sarfraz", amount: 23.33 },
-    { name: "Ayesha", amount: 33.33 }
-  ];
+const SettledCard = styled.div`
+  background-color: #e6ffed;
+  color: #2e7d32;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #c8e6c9;
+`;
 
+const Summary = ({ balanceList, getUserName }) => {
   return (
     <Container>
       <Title>Summary</Title>
-      {balanceList.map((item, index) => (
-        <DebtCard key={index}>
-          <Name>{item.from} owes {item.to}</Name>
-          <Amount>₹{item.amount}</Amount>
-        </DebtCard>
-      ))}
+
+      {balanceList.length === 0 ? (
+        <SettledCard>🎉 All Settled! No dues left.</SettledCard>
+      ) : (
+        balanceList.map((item, index) => (
+          <DebtCard key={index}>
+            <Name>
+              {getUserName(item.from)} owes {getUserName(item.to)}
+            </Name>
+            <Amount>₹{item.amount}</Amount>
+          </DebtCard>
+        ))
+      )}
     </Container>
   );
 };

@@ -1,0 +1,65 @@
+.expense-detail-modal .ant-modal-content {
+  border-radius: 12px;
+  padding: 24px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+}
+
+.expense-detail-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0077ff;
+  margin-bottom: 16px;
+}
+
+.expense-detail-section {
+  margin-bottom: 16px;
+}
+
+.expense-detail-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #444;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 4px;
+}
+
+.expense-detail-value {
+  background-color: #f9f9f9;
+  padding: 10px 14px;
+  border-radius: 6px;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.expense-detail-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.expense-detail-actions button {
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.expense-edit-form .ant-input,
+.expense-edit-form .ant-select {
+  border-radius: 8px;
+}
+
+.expense-edit-form .ant-form-item {
+  margin-bottom: 16px;
+}
+
+.expense-delete-btn {
+  background-color: #ff4d4f !important;
+  color: white;
+  border: none;
+}
+
+.expense-delete-btn:hover {
+  background-color: #d9363e !important;
+}

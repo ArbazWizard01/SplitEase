@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { useContext } from "react";
 import { AuthProvider, AuthContext } from "./contexts/AuthContext";
+import "antd/dist/reset.css";
 
 import Register from "./components/Auth/Register";
 import Login from "./components/Auth/Login";
