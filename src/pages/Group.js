@@ -260,7 +260,7 @@ const Group = () => {
                     }}
                   >
                     Add Expense
-                  </Button>
+                  </Button> 
                 ) : (
                   <Button
                     className="expense-btn"
