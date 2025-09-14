@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/splitease/static/css/main.e47e2e71.css",
-    "main.js": "/splitease/static/js/main.505afc2f.js",
-    "static/js/453.6271c158.chunk.js": "/splitease/static/js/453.6271c158.chunk.js",
-    "index.html": "/splitease/index.html",
-    "main.e47e2e71.css.map": "/splitease/static/css/main.e47e2e71.css.map",
-    "main.505afc2f.js.map": "/splitease/static/js/main.505afc2f.js.map",
-    "453.6271c158.chunk.js.map": "/splitease/static/js/453.6271c158.chunk.js.map"
+    "main.css": "/SplitEase/static/css/main.e47e2e71.css",
+    "main.js": "/SplitEase/static/js/main.7e4942e3.js",
+    "static/js/453.101a5749.chunk.js": "/SplitEase/static/js/453.101a5749.chunk.js",
+    "index.html": "/SplitEase/index.html",
+    "main.e47e2e71.css.map": "/SplitEase/static/css/main.e47e2e71.css.map",
+    "main.7e4942e3.js.map": "/SplitEase/static/js/main.7e4942e3.js.map",
+    "453.101a5749.chunk.js.map": "/SplitEase/static/js/453.101a5749.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e47e2e71.css",
-    "static/js/main.505afc2f.js"
+    "static/js/main.7e4942e3.js"
   ]
 }
