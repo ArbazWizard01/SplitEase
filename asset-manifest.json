@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/SplitEase/static/css/main.e47e2e71.css",
+    "main.js": "/SplitEase/static/js/main.45efd019.js",
+    "static/js/453.6271c158.chunk.js": "/SplitEase/static/js/453.6271c158.chunk.js",
+    "index.html": "/SplitEase/index.html",
+    "main.e47e2e71.css.map": "/SplitEase/static/css/main.e47e2e71.css.map",
+    "main.45efd019.js.map": "/SplitEase/static/js/main.45efd019.js.map",
+    "453.6271c158.chunk.js.map": "/SplitEase/static/js/453.6271c158.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e47e2e71.css",
+    "static/js/main.45efd019.js"
+  ]
+}
