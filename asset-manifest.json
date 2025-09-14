@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/splitwise/static/css/main.e47e2e71.css",
+    "main.js": "/splitwise/static/js/main.f5598ed0.js",
+    "static/js/453.6271c158.chunk.js": "/splitwise/static/js/453.6271c158.chunk.js",
+    "index.html": "/splitwise/index.html",
+    "main.e47e2e71.css.map": "/splitwise/static/css/main.e47e2e71.css.map",
+    "main.f5598ed0.js.map": "/splitwise/static/js/main.f5598ed0.js.map",
+    "453.6271c158.chunk.js.map": "/splitwise/static/js/453.6271c158.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e47e2e71.css",
+    "static/js/main.f5598ed0.js"
+  ]
+}
