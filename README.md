@@ -11,7 +11,6 @@
   ![image](https://github.com/user-attachments/assets/06b3dc76-d10f-47fe-8824-8c907cd7c153)
 
 
-*(Add your actual image links or upload images in your repo)*
 
 ---
 
@@ -31,7 +30,7 @@
 | Frontend | Backend | Database | Others |
 |:--------:|:-------:|:--------:|:------:|
 | React.js | Node.js (Express) | MongoDB | JWT Authentication |
-| TailwindCSS | API Endpoints | Mongoose | React Router DOM |
+| CSS | API Endpoints | Mongoose | React Router DOM |
 
 ---
 
@@ -52,7 +51,6 @@ cd splitease
 npm install
 ```
 
-*(If you have separate backend, go into backend folder and do `npm install` there too.)*
 
 ### 3. Set Environment Variables
 
@@ -85,7 +83,6 @@ npm run server
 
 [🔗 Click here to view live SplitEase](https://your-splitease-app-link.vercel.app)  
 
-*(Add once you deploy on Vercel/Netlify)*
 
 ---
 
