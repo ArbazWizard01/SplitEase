@@ -79,7 +79,6 @@ const Dashboard = () => {
               Keep track of shared expenses and settle your corresponding
               balances in a convenient and personalized way.
             </p>
-            <Link className="view-groups-btn">View Groups</Link>
           </div>
           <img
             className="welcome-img"

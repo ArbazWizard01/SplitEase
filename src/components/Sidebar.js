@@ -84,17 +84,6 @@ const Sidebar = ({ onGroupCreated }) => {
           ))}
         </div>
       </div>
-
-      <div className="footer">
-        <p>© ArbazAnsari | Open Source ❤️</p>
-        <a
-          href="https://github.com/ArbazWizard01"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          [GitHub]
-        </a>
-      </div>
     </div>
   );
 };
